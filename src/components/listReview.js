@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const ListReview = ({ number, good, neutral, bad, percentReview }) => (
   <div>
@@ -17,4 +18,11 @@ const ListReview = ({ number, good, neutral, bad, percentReview }) => (
     )}
   </div>
 );
+ListReview.propTypes = {
+  number: PropTypes.number.isRequired,
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  percentReview: PropTypes.number.isRequired,
+};
 export default ListReview;

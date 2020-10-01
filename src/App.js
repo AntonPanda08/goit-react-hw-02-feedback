@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import ButtonController from "./components/buttonList";
 import ListReview from "./components/listReview";
+import Section from "./components/section";
 class App extends Component {
   static defaultProps = { amount: 0 };
 
-  static propTypes = {};
   state = {
     good: 0,
     neutral: 0,
@@ -48,20 +48,22 @@ class App extends Component {
     );
     return (
       <>
-        <h2>Please leave feedback</h2>
-        <ButtonController
-          onHandleGood={this.handleGood}
-          onHandleNeutral={this.handleNeutral}
-          onHandleBad={this.handleBad}
-        />
-        <h2>Stats</h2>
-        <ListReview
-          number={total}
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          percentReview={percentReview}
-        />
+        <Section title="Please leave feedback">
+          <ButtonController
+            onHandleGood={this.handleGood}
+            onHandleNeutral={this.handleNeutral}
+            onHandleBad={this.handleBad}
+          />
+        </Section>
+        <Section title="Stats">
+          <ListReview
+            number={total}
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            percentReview={percentReview}
+          />
+        </Section>
       </>
     );
   }
