@@ -10,25 +10,10 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  handleBad = () => {
-    this.setState((previousState) => {
-      return {
-        bad: previousState.bad + 1,
-      };
-    });
-  };
-  handleNeutral = () => {
-    this.setState((previousState) => {
-      return {
-        neutral: previousState.neutral + 1,
-      };
-    });
-  };
-  handleGood = () => {
-    this.setState((previousState) => {
-      return {
-        good: previousState.good + 1,
-      };
+  handleChange = ({ target }) => {
+    const { value } = target;
+    this.setState((prevState) => {
+      return { [value]: prevState[value] + 1 };
     });
   };
   countTotalFeedback = () => {
@@ -50,9 +35,10 @@ class App extends Component {
       <>
         <Section title="Please leave feedback">
           <ButtonController
-            onHandleGood={this.handleGood}
-            onHandleNeutral={this.handleNeutral}
-            onHandleBad={this.handleBad}
+            onHandleChange={this.handleChange}
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
           />
         </Section>
         <Section title="Stats">

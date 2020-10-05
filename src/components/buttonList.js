@@ -1,25 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
-const ButtonController = ({ onHandleGood, onHandleNeutral, onHandleBad }) => (
+const ButtonController = ({ onHahdleChange, good, bad, neutral }) => (
   <>
-    <button type="button" onClick={onHandleGood}>
+    <button type="button" value={good} onClick={onHahdleChange}>
       Good
     </button>
     <br />
     <br />
-    <button type="button" onClick={onHandleNeutral}>
+    <button type="button" value={neutral} onClick={onHahdleChange}>
       Neutral
     </button>
     <br />
     <br />
-    <button type="button" onClick={onHandleBad}>
+    <button type="button" value={bad} onClick={onHahdleChange}>
       Bad
     </button>
   </>
 );
 ButtonController.propTypes = {
-  onHandleGood: PropTypes.func.isRequired,
-  onHandleNeutral: PropTypes.func.isRequired,
-  onHandleBad: PropTypes.func.isRequired,
+  onHandleChange: PropTypes.func.isRequired,
 };
 export default ButtonController;
