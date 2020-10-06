@@ -1,23 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-const ButtonController = ({ onHahdleChange, good, bad, neutral }) => (
-  <>
-    <button type="button" value={good} onClick={onHahdleChange}>
-      Good
+const ButtonController = ({ options, onLeaveFeedback }) => {
+  const keys = Object.keys(options);
+  return keys.map((key) => (
+    <button key={key} type="button" value={key} onClick={onLeaveFeedback}>
+      {key}
     </button>
-    <br />
-    <br />
-    <button type="button" value={neutral} onClick={onHahdleChange}>
-      Neutral
-    </button>
-    <br />
-    <br />
-    <button type="button" value={bad} onClick={onHahdleChange}>
-      Bad
-    </button>
-  </>
-);
+  ));
+};
 ButtonController.propTypes = {
-  onHandleChange: PropTypes.func.isRequired,
+  options: PropTypes.object.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
 export default ButtonController;

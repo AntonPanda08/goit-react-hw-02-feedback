@@ -35,10 +35,8 @@ class App extends Component {
       <>
         <Section title="Please leave feedback">
           <ButtonController
-            onHandleChange={this.handleChange}
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
+            options={this.state}
+            onLeaveFeedback={this.handleChange}
           />
         </Section>
         <Section title="Stats">
